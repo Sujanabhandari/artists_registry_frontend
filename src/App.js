@@ -5,6 +5,7 @@ import { debounce } from 'lodash';
 import PacmanLoader from "react-spinners/ClipLoader";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+const baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
 
 const override = {
     display: "block",
@@ -12,7 +13,8 @@ const override = {
     position: "fixed",
     top: "50%",
     left: "50%",
-    borderWidth: "3px"
+    borderWidth: "3px",
+    zIndex: 999,
 };
 
 function App() {
@@ -29,7 +31,7 @@ function App() {
         if (e.target.value !== '') {
             try {
                 setLoading(true)
-                const { data } = await axios.get(`http://localhost:3000/api/artists?name=${e.target.value}`);
+                const { data } = await axios.get(`https://artist-registry.onrender.com/api/artists?name=${e.target.value}`);
                 setArtists(data);
                 setLoading(false)
             } catch (error) {
@@ -39,7 +41,7 @@ function App() {
         } else {
             setArtists([]);
         }
-    }, 300);
+    }, 250);
 
     return (
         <>
