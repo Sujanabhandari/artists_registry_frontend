@@ -18,6 +18,10 @@
 
 3. Then use one of the scripts bellow
 
+## Check Deployed Version
+
+<https://artistsplaylist.netlify.app/>
+
 ## Available Scripts
 
 In the project directory, you can run:
