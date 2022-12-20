@@ -31,7 +31,7 @@ function App() {
         if (e.target.value !== '') {
             try {
                 setLoading(true)
-                const { data } = await axios.get(`https://artist-registry.onrender.com/api/artists?name=${e.target.value}`);
+                const { data } = await axios.get(`${baseUrl}/api/artists?name=${e.target.value}`);
                 setArtists(data);
                 setLoading(false)
             } catch (error) {
